@@ -1,0 +1,13 @@
+{
+  "name": "flash-sale-engine-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm:dev --prefix frontend\" \"npm:dev --prefix backend\"",
+    "start": "node backend/server.js",
+    "postinstall": "cd frontend && npm install || true && cd ../backend && npm install || true"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

@@ -1,0 +1,59 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:6
+        ports:
+          - 27017:27017
+        options: >
+          --health-cmd "mongosh --eval 'db.adminCommand({ ping: 1 })'" \
+          --health-interval 10s \
+          --health-timeout 5s \
+          --health-retries 5
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+        options: >
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Validate backend syntax
+        working-directory: backend
+        run: node --check server.js
+
+      - name: Run backend seed script
+        working-directory: backend
+        env:
+          MONGO_URL: mongodb://localhost:27017/flashsale
+          JWT_SECRET: ci-secret
+        run: npm run seed
+
+      - name: Build backend Docker image
+        working-directory: backend
+        run: docker build -t flashsale-backend:ci .
