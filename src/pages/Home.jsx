@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import heroImage from "../assets/hero.png"
 import { getProductImage } from "../utils/productImage"
 import SocialShareIncentive from "../components/SocialShareIncentive"
 import { initializeSocket, joinProduct, onInventoryUpdate, onPurchaseNotification } from "../utils/socketClient"
@@ -619,11 +618,7 @@ function Home({ cart, setCart }) {
       <main className="mx-auto max-w-7xl px-5 py-7">
         <section className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
           <div className="relative overflow-hidden rounded-2xl bg-slate-950 p-6 text-white shadow-xl shadow-slate-200">
-            <img
-              src={heroImage}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover opacity-25"
-            />
+            <div className="h-full w-full bg-sky-800 from-blue-900 to-purple-900" />
             <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/90 to-slate-950/30" />
             <div className="relative">
             <p className="text-sm font-black uppercase tracking-[0.2em] ">Ongoing Flash Salec</p>
