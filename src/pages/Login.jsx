@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
-import heroImage from "../assets/hero.png"
+
 
 function Login() {
 
@@ -22,7 +22,7 @@ function Login() {
     setLoading(true)
 
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -116,6 +116,7 @@ function Login() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="mt-2 w-full rounded-lg border border-b-amber-700 bg-white px-4 py-3 text-slate-950 outline-2 transition focus:border-red-500 focus:ring-4 focus:ring-red-100"
                 />
+                
               </label>
 
               <label className="block">
