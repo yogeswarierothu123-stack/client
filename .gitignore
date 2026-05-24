@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 .env
+=======
+>>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
 # Logs
 logs
 *.log

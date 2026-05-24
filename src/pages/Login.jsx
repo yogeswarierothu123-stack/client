@@ -1,6 +1,10 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
+<<<<<<< HEAD
 
+=======
+import heroImage from "../assets/hero.png"
+>>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
 
 function Login() {
 
@@ -22,7 +26,11 @@ function Login() {
     setLoading(true)
 
     try {
+<<<<<<< HEAD
       const response = await fetch("http://localhost:5000/api/auth/login", {
+=======
+      const response = await fetch("/api/auth/login", {
+>>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -90,7 +98,11 @@ function Login() {
           </div>
         </section>
 
+<<<<<<< HEAD
         <section className="flex items-center justify-center bg-blue-300 px-3 py-10 border border-amber-950 text-slate-950 sm:px-20">
+=======
+        <section className="flex items-center justify-center bg-fuchsia-300 px-3 py-10 border border-amber-950 text-slate-950 sm:px-20">
+>>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
           <div className="w-full max-w-md">
             <Link to="/" className="text-shadow-blue-600 font-black uppercase tracking-[0.75em] text-cyan-950">
               Flash Sale Engine
@@ -116,7 +128,10 @@ function Login() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="mt-2 w-full rounded-lg border border-b-amber-700 bg-white px-4 py-3 text-slate-950 outline-2 transition focus:border-red-500 focus:ring-4 focus:ring-red-100"
                 />
+<<<<<<< HEAD
                 
+=======
+>>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
               </label>
 
               <label className="block">
@@ -133,7 +148,11 @@ function Login() {
               <button
                 disabled={loading}
                 onClick={handleLogin}
+<<<<<<< HEAD
                 className="w-full rounded-lg bg-blue-900 px-4 py-3 text-base font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-700 disabled:opacity-50"
+=======
+                className="w-full rounded-lg bg-red-600 px-4 py-3 text-base font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-700 disabled:opacity-50"
+>>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
               >
                 {loading ? "Logging in..." : "Login"}
               </button>
