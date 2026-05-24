@@ -1,15 +1,8 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
-<<<<<<< HEAD
-
-=======
-import heroImage from "../assets/hero.png"
->>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
 
 function Login() {
-
   const navigate = useNavigate()
-
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
@@ -26,11 +19,7 @@ function Login() {
     setLoading(true)
 
     try {
-<<<<<<< HEAD
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-=======
       const response = await fetch("/api/auth/login", {
->>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -50,8 +39,6 @@ function Login() {
         throw new Error(result.message || result.error || "Login failed")
       }
 
-
-      
       localStorage.setItem("token", result.token)
       localStorage.setItem("user", JSON.stringify(result.user))
       localStorage.setItem("isLoggedIn", "true")
@@ -62,19 +49,13 @@ function Login() {
     } finally {
       setLoading(false)
     }
-  }
+  } // handleLogin close ayindi ikkada
 
   return (
-
     <div className="min-h-screen bg-cyan-950 caret-cyan-800 px-5 py-8 text-white">
       <div className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-6xl overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl lg:grid-cols-[1.1fr_0.9fr]">
         <section className="relative hidden min-h-full bg-slate-900 lg:block">
-          <img
-            src={heroImage}
-            alt="Flash sale products"
-            className="h-full w-full object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/35 to-transparent" />
+          <div className="absolute inset-0 bg-gray-800 from-slate-950 via-slate-950/35 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-10">
             <p className="text-sm font-light uppercase tracking-tight text-blue-300">Flash Sale Engine
             </p>
@@ -97,12 +78,8 @@ function Login() {
             </div>
           </div>
         </section>
-
-<<<<<<< HEAD
-        <section className="flex items-center justify-center bg-blue-300 px-3 py-10 border border-amber-950 text-slate-950 sm:px-20">
-=======
+        
         <section className="flex items-center justify-center bg-fuchsia-300 px-3 py-10 border border-amber-950 text-slate-950 sm:px-20">
->>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
           <div className="w-full max-w-md">
             <Link to="/" className="text-shadow-blue-600 font-black uppercase tracking-[0.75em] text-cyan-950">
               Flash Sale Engine
@@ -128,10 +105,6 @@ function Login() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="mt-2 w-full rounded-lg border border-b-amber-700 bg-white px-4 py-3 text-slate-950 outline-2 transition focus:border-red-500 focus:ring-4 focus:ring-red-100"
                 />
-<<<<<<< HEAD
-                
-=======
->>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
               </label>
 
               <label className="block">
@@ -148,11 +121,7 @@ function Login() {
               <button
                 disabled={loading}
                 onClick={handleLogin}
-<<<<<<< HEAD
                 className="w-full rounded-lg bg-blue-900 px-4 py-3 text-base font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-700 disabled:opacity-50"
-=======
-                className="w-full rounded-lg bg-red-600 px-4 py-3 text-base font-black text-white shadow-lg shadow-red-600/25 transition hover:bg-red-700 disabled:opacity-50"
->>>>>>> a65ba7f856f509376d22ab6d63a1b10cb253f557
               >
                 {loading ? "Logging in..." : "Login"}
               </button>
@@ -174,15 +143,9 @@ function Login() {
               </Link>
             </p>
           </div>
-          <div className ="login-box">
-            
-          </div>
-           
-          
         </section>
       </div>
     </div>
-
   )
 }
 
